@@ -6,5 +6,6 @@ import { AdditionalInfoRepository } from './additional-info.repository';
 @Module({
   imports: [TypeOrmModule.forFeature([AdditionalInfoRepository])],
   providers: [AdditionalInfoService],
+  exports: [AdditionalInfoService],
 })
 export class AdditionalInfoModule {}

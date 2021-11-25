@@ -1,0 +1,36 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type SellerEntity {
+  id: Float!
+  name: String!
+}
+
+type CategoryEntity {
+  id: Float!
+  name: String!
+}
+
+type ProductEntity {
+  id: Float!
+  description: String!
+  price: Float!
+  images: [String!]!
+  name: String!
+  uploadedDate: DateTime!
+  seller: SellerEntity!
+  category: CategoryEntity!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  sayHello: String!
+  product: [ProductEntity!]!
+  seller: [SellerEntity!]!
+  category: [CategoryEntity!]!
+}

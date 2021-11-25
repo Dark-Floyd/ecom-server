@@ -1,34 +1,48 @@
-import { ObjectType } from '@nestjs/graphql';
+import { Field, ObjectType } from '@nestjs/graphql';
 import { CategoryEntity } from 'src/category/category.entity';
 import { SellerEntity } from 'src/seller/seller.entity';
 import { SellerRepository } from 'src/seller/seller.repository';
-import { Entity, PrimaryGeneratedColumn, Column, ObjectIdColumn, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ObjectIdColumn,
+  OneToMany,
+} from 'typeorm';
 
 @ObjectType()
 @Entity('product')
 export class ProductEntity {
+
+  @Field()
   @PrimaryGeneratedColumn('uuid')
   id: number;
 
+  @Field()
   @Column('varchar', { length: 500 })
   description: string;
 
+  @Field()
   @Column('numeric')
   price: number;
 
+  @Field(()=>[String])
   @Column('varchar', { array: true })
   images: string[];
 
+  @Field()
   @Column('varchar', { length: 500, unique: true })
   name: string;
 
+  @Field()
   @Column('varchar', { length: 500 })
   uploadedDate: Date;
 
-
-  @OneToMany(_type=>SellerEntity,seller=>seller.name)
+  @Field(()=>SellerEntity)
+  @OneToMany((_type) => SellerEntity, (seller) => seller.name)
   seller: SellerEntity;
 
-  @OneToMany(_type=>CategoryEntity,category=>category.name)
+  @Field(()=>CategoryEntity)
+  @OneToMany((_type) => CategoryEntity, (category) => category.name)
   category: CategoryEntity;
 }

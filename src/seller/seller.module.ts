@@ -7,5 +7,6 @@ import { SellerRepository } from './seller.repository';
 @Module({
   imports: [TypeOrmModule.forFeature([SellerRepository])],
   providers: [SellerService],
+  exports: [SellerService],
 })
 export class SellerModule {}

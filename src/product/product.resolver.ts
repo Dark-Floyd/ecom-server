@@ -8,13 +8,20 @@ import { SellerService } from 'src/seller/seller.service';
 import { ProductEntity } from './product.entity';
 import { ProductService } from './product.service';
 
-@Resolver(() => ProductService)
+@Resolver(() => ProductEntity)
 export class ProductResolver {
   constructor(
     private readonly productService: ProductService,
     private readonly sellerService: SellerService,
     private readonly categoryService: CategoryService,
-  ) {}
+  ) {
+
+    
+  }
+  @Query(() => String)
+  sayHello(): string {
+    return 'Hello World!';
+  }
 
   @Query(() => [ProductEntity])
   async product() {
