@@ -25,9 +25,11 @@ export class ProductResolver {
   async seller() {
     return this.sellerService.getSellers();
   }
-  
+
   @Query(() => [CategoryEntity])
   async category() {
     return this.categoryService.getCategories();
   }
+
+  
 }

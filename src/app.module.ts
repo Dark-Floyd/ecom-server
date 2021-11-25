@@ -3,7 +3,6 @@ import { AppController } from './app.controller'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { AppService } from './app.service'
 import { GraphQLModule } from '@nestjs/graphql'
-import { CartModule } from './cart/cart.module';
 import { ProductModule } from './product/product.module'
 
 
@@ -14,8 +13,8 @@ import { ProductModule } from './product/product.module'
 			autoSchemaFile: 'schema.gpl'
 		}),
     ProductModule,
-    CartModule,
     
+
 
   
   ],
